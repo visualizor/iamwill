@@ -9,10 +9,11 @@ html, body {
     overflow-y: auto;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+    background-color: #333;
 }
 body {
     font-family: 'Space Mono', monospace;
-    color: #111;        /* matches your wireframe text color */
+    color: #fff;        /* matches your wireframe text color */
     font-size: 16px;       /* base size from your mockup */
 }
 
@@ -29,12 +30,12 @@ nav#dot-nav {
 nav#dot-nav a {
     display: block;
     width: 12px; height: 12px;
-    border: 2px solid #888;
+    border: 2px solid #aaa;
     border-radius: 50%;
     text-indent: -9999px;
 }
 nav#dot-nav a.active {
-    background-color: #888;
+    background-color: #aaa;
 }
 /* custom, fast tooltip on nav dots */
 nav#dot-nav a {
@@ -67,7 +68,7 @@ h2 {
 }
 p, section ul li {
     font-size: 16px;       /* body copy & list items */
-    color: #333;        /* softer sub-text color */
+    color: #ddd;        /* softer sub-text color */
 }
 
 /* each “page” */
@@ -125,7 +126,7 @@ section h1, section h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 1s ease;
 }
 .grid-item:hover img {
   transform: scale(1.05);
@@ -149,7 +150,7 @@ section h1, section h2 {
 }
 #section3 ul li span {
     display: block;
-    color: #888;
+    color: #aaa;
     font-size: 0.95rem;
     margin-top: 4px;
 }
@@ -182,7 +183,7 @@ section h1, section h2 {
 
 /* === Section 5: contact === */
 #section5 a {
-    color: #333;
+    color: #ddd;
     text-decoration: none;
 }
 #section5 a:hover {
