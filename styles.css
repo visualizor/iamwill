@@ -1,0 +1,181 @@
+ /* 1) import & switch to Space Mono */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+ 
+ /* reset & base */
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body {
+    height:100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+body {
+    font-family: 'Space Mono', monospace;
+    color: #111;        /* matches your wireframe text color */
+    font-size: 16px;       /* base size from your mockup */
+}
+
+/* right-side dot nav */
+nav#dot-nav {
+    position: fixed;
+    top: 50%; right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 100;
+}
+nav#dot-nav a {
+    display: block;
+    width: 12px; height: 12px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    text-indent: -9999px;
+}
+nav#dot-nav a.active {
+    background-color: #888;
+}
+/* custom, fast tooltip on nav dots */
+nav#dot-nav a {
+  position: relative;
+}
+#dot-tooltip {
+  position: fixed;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+  z-index: 200;
+}
+
+
+/* 2) Exact sizes for titles & subtitles */
+h1 {
+    font-size: 16px;       /* “My Name is Will” in your mockup */
+    font-weight: 400;
+}
+h2 {
+    font-size: 16px;       /* section headings */
+    font-weight: 400;
+}
+p, section ul li {
+    font-size: 16px;       /* body copy & list items */
+    color: #333;        /* softer sub-text color */
+}
+
+/* each “page” */
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+section h1, section h2 {
+    margin-bottom: 16px;
+    font-weight: normal;
+}
+
+/* === Section 1: grid of work === */
+#section1 {
+    display: flex;
+    flex-direction: column;
+}
+#section1 p {
+    margin-bottom: 20px;
+}
+#section1 .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+#section1 .grid-item {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+#section1 .grid .grid-item {
+    background: #ddd;
+    /* maintain an aspect ratio */
+    width: 100%;
+    aspect-ratio: 4/3;
+}
+#section1 .grid-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === Section 2: accomplishments === */
+#section2 ul {
+    list-style: none;
+    line-height: 2;
+    margin-top: 16px;
+}
+
+/* === Section 3: where I’ve been === */
+#section3 ul {
+    list-style: none;
+    line-height: 1.6;
+}
+#section3 ul li {
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+#section3 ul li span {
+    display: block;
+    color: #888;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+/* === Section 4: tools list === */
+#section4 {
+    display: flex;
+    flex-direction: column;
+}
+#section4 ul {
+  /* drop any column-count/column-gap you had */
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;           
+  width: 100%;       
+  overflow-y: auto;  
+  overflow-x: hidden;/* no horizontal wrap/scroll */
+}
+#section4 ul li {
+  margin: 0 0 8px;       /* spacing between items */
+  padding: 0;
+}
+#section4 ul li::before {
+    content: none;
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+/* === Section 5: contact === */
+#section5 a {
+    color: #333;
+    text-decoration: none;
+}
+#section5 a:hover {
+    text-decoration: underline;
+}
