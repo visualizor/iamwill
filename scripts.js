@@ -16,14 +16,16 @@ sections.forEach(s => observer.observe(s));
 
 function trapScroll(selector) {
   const el = document.querySelector(selector);
-  el.addEventListener('wheel', e => {
-    const atTop    = el.scrollTop === 0;
-    const atBottom = Math.abs(el.scrollHeight - el.scrollTop - el.clientHeight) < 1;
-    // if NOT at the very ends, eat the event here
-    if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
-      e.stopPropagation();
-    }
-  }, { passive: false });
+  if (el){
+    el.addEventListener('wheel', e => {
+      const atTop    = el.scrollTop === 0;
+      const atBottom = Math.abs(el.scrollHeight - el.scrollTop - el.clientHeight) < 1;
+      // if NOT at the very ends, eat the event here
+      if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
+        e.stopPropagation();
+      }
+    }, { passive: false });
+  }
 }
 // apply to both the image grid and the tools list
 trapScroll('#section1 .grid');

@@ -58,12 +58,8 @@ nav#dot-nav a {
 
 
 /* 2) Exact sizes for titles & subtitles */
-h1 {
+h1, h2 {
     font-size: 16px;       /* “My Name is Will” in your mockup */
-    font-weight: 400;
-}
-h2 {
-    font-size: 16px;       /* section headings */
     font-weight: 400;
 }
 p, section ul li {
@@ -97,7 +93,7 @@ section h1, section h2 {
 }
 .container {
   width: 100%;
-  padding: 16 0px;        /* side gutters */
+  padding: 16px 0;        /* side gutters */
   margin: 0 auto;         /* center in viewport */
 
   /* limit height and enable scrolling when content exceeds it */
@@ -106,7 +102,7 @@ section h1, section h2 {
 }
 #section1 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px;
   width: 100%;
 }
@@ -116,7 +112,7 @@ section h1, section h2 {
   border-radius: 4px;
 }
 #section1 .grid .grid-item {
-    background: #ddd;
+    background: #333;
     /* maintain an aspect ratio */
     width: 100%;
     aspect-ratio: 4/3;
@@ -173,12 +169,6 @@ section h1, section h2 {
 #section4 ul li {
   margin: 0 0 8px;       /* spacing between items */
   padding: 0;
-}
-#section4 ul li::before {
-    content: none;
-    position: absolute;
-    left: 0;
-    color: #333;
 }
 
 /* === Section 5: contact === */
