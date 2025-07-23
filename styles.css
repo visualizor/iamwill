@@ -189,3 +189,16 @@ section h1, section h2 {
 #section5 a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 700px) {
+  section {
+    padding: 24px; /* much smaller padding on mobile */
+  }
+  nav#dot-nav {
+    right: 8px; /* bring dot nav in closer to the edge */
+  }
+  #section1 .grid {
+    grid-template-columns: 1fr; /* stack work items */
+    gap: 8px; /* smaller gaps */
+  }
+}
