@@ -14,23 +14,28 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 sections.forEach(s => observer.observe(s));
 
-function trapScroll(selector) {
-  const el = document.querySelector(selector);
-  if (!el) return;
-  el.addEventListener('wheel', e => {
-    const atTop    = el.scrollTop === 0;
-    const atBottom = Math.abs(el.scrollHeight - el.scrollTop - el.clientHeight) < 1;
-    if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
-      e.preventDefault();
-      const px = e.deltaMode === 1 ? e.deltaY * 20 : e.deltaMode === 2 ? e.deltaY * el.clientHeight : e.deltaY;
-      el.scrollTop += px;
-    }
-  }, { passive: false });
-}
-// apply to both the image grid and the tools list
-trapScroll('#section1 .grid');
-trapScroll('#section4 ul');
 
+// — medallion hover video —
+const vidWrap = document.querySelector('.vid-wrap');
+if (vidWrap) {
+  const video = vidWrap.querySelector('video');
+
+  vidWrap.addEventListener('mouseenter', () => {
+    if (video.readyState < 3) vidWrap.classList.add('buffering');
+    video.play().then(() => {
+      vidWrap.classList.remove('buffering');
+      vidWrap.classList.add('playing');
+    }).catch(() => {
+      vidWrap.classList.remove('buffering');
+    });
+  });
+
+  vidWrap.addEventListener('mouseleave', () => {
+    vidWrap.classList.remove('playing', 'buffering');
+    video.pause();
+    video.currentTime = 0;
+  });
+}
 
 // — JS-tooltip for the nav dots —
 const tooltip = document.createElement('div');
