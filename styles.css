@@ -9,7 +9,7 @@ html, body {
     overflow-y: auto;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
-    background-color: #333;
+    background-color: #222;
 }
 body {
     font-family: 'Space Mono', monospace;
@@ -30,12 +30,12 @@ nav#dot-nav {
 nav#dot-nav a {
     display: block;
     width: 12px; height: 12px;
-    border: 2px solid #aaa;
+    border: 2px solid #777;
     border-radius: 50%;
     text-indent: -9999px;
 }
 nav#dot-nav a.active {
-    background-color: #aaa;
+    background-color: #777;
 }
 /* custom, fast tooltip on nav dots */
 nav#dot-nav a {
@@ -63,8 +63,11 @@ h1, h2 {
     font-weight: 400;
 }
 p, section ul li {
-    font-size: 16px;       /* body copy & list items */
-    color: #ddd;        /* softer sub-text color */
+    font-size: 16px;
+    color: #ddd;
+}
+#section1 p {
+    color: #fff;
 }
 
 /* each “page” */
@@ -93,13 +96,16 @@ section h1, section h2 {
 }
 .container {
   width: 100%;
-  padding: 16px 0;        /* side gutters */
-  margin: 0 auto;         /* center in viewport */
-
-  /* limit height and enable scrolling when content exceeds it */
-  max-height: 80vh;       /* container won’t exceed 80% of viewport height */
-  overflow-y: auto;       /* vertical scrollbar appears as needed */
+  padding: 16px 0;
+  margin: 0 auto;
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #777 transparent;
 }
+.container::-webkit-scrollbar { width: 6px; }
+.container::-webkit-scrollbar-track { background: transparent; }
+.container::-webkit-scrollbar-thumb { background: #777; border-radius: 3px; }
 #section1 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -112,7 +118,7 @@ section h1, section h2 {
   border-radius: 4px;
 }
 #section1 .grid .grid-item {
-    background: #333;
+    background: #222;
     /* maintain an aspect ratio */
     width: 100%;
     aspect-ratio: 4/3;
@@ -141,14 +147,22 @@ section h1, section h2 {
     line-height: 1.6;
 }
 #section3 ul li {
-    margin-bottom: 16px;
-    margin-top: 16px;
+    margin-bottom: 12px;
 }
-#section3 ul li span {
+#section3 ul li span,
+#section3 ul li ul {
     display: block;
-    color: #aaa;
+    color: #777;
     font-size: 0.95rem;
     margin-top: 4px;
+}
+#section3 ul li ul {
+    list-style: none;
+    margin-left: 16px;
+}
+#section3 ul li ul li {
+    margin-bottom: 2px;
+    color: #777;
 }
 
 /* === Section 4: tools list === */
@@ -157,15 +171,19 @@ section h1, section h2 {
     flex-direction: column;
 }
 #section4 ul {
-  /* drop any column-count/column-gap you had */
   margin-top: 16px;
   display: flex;
   flex-direction: column;
-  flex: 1;           
-  width: 100%;       
-  overflow-y: auto;  
-  overflow-x: hidden;/* no horizontal wrap/scroll */
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #777 transparent;
 }
+#section4 ul::-webkit-scrollbar { width: 6px; }
+#section4 ul::-webkit-scrollbar-track { background: transparent; }
+#section4 ul::-webkit-scrollbar-thumb { background: #777; border-radius: 3px; }
 #section4 ul li {
   margin: 0 0 8px;       /* spacing between items */
   padding: 0;
