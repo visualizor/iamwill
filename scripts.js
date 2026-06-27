@@ -15,9 +15,8 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(s => observer.observe(s));
 
 
-// — medallion hover video —
-const vidWrap = document.querySelector('.vid-wrap');
-if (vidWrap) {
+// — hover videos —
+document.querySelectorAll('.vid-wrap').forEach(vidWrap => {
   const video = vidWrap.querySelector('video');
 
   vidWrap.addEventListener('mouseenter', () => {
@@ -35,7 +34,26 @@ if (vidWrap) {
     video.pause();
     video.currentTime = 0;
   });
-}
+});
+
+// — image hover swap (base → white → new, reversed on leave) —
+document.querySelectorAll('.img-swap').forEach(imgSwap => {
+  const link    = imgSwap.querySelector('a') ?? imgSwap.querySelector('img:not(.img-over)');
+  const imgOver = imgSwap.querySelector('.img-over');
+  imgSwap.addEventListener('mouseenter', () => {
+    link.style.transition    = 'opacity 0.4s ease';
+    link.style.opacity       = '0';
+    imgOver.style.transition = 'opacity 0.4s ease';
+    imgOver.style.opacity    = '1';
+  });
+
+  imgSwap.addEventListener('mouseleave', () => {
+    link.style.transition    = 'opacity 0.4s ease';
+    link.style.opacity       = '1';
+    imgOver.style.transition = 'opacity 0.4s ease';
+    imgOver.style.opacity    = '0';
+  });
+});
 
 // — JS-tooltip for the nav dots —
 const tooltip = document.createElement('div');

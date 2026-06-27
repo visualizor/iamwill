@@ -199,6 +199,30 @@ section h1, section h2 {
   to { transform: rotate(360deg); }
 }
 
+/* === image hover swap === */
+.img-swap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.img-swap > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.img-swap:hover img {
+  transform: none;
+}
+.img-swap .img-over {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* === Section 2: accomplishments === */
 #section2 ul {
     list-style: none;
@@ -207,6 +231,14 @@ section h1, section h2 {
 }
 
 /* === Section 3: where I’ve been === */
+#section3 a {
+  color: inherit;
+  text-decoration: none;
+}
+#section3 a:hover {
+  text-decoration: underline;
+}
+
 #section3 ul {
     list-style: none;
     line-height: 1.6;
