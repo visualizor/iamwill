@@ -142,14 +142,27 @@ section h1, section h2 {
     aspect-ratio: 4/3;
 }
 #section1 .grid-item img {
-  
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 1s ease;
 }
-.grid-item:hover img {
-  transform: scale(1.05);
+#section1 .grid-item > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#section1 .grid-item > video,
+#section1 .grid-item > a > video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (hover: hover) and (pointer: fine) {
+  .grid-item:hover img {
+    transform: scale(1.05);
+  }
 }
 
 /* === medallion hover video === */
@@ -224,13 +237,30 @@ section h1, section h2 {
 }
 
 /* === Section 2: accomplishments === */
+#section2 {
+    display: flex;
+    flex-direction: column;
+}
 #section2 ul {
     list-style: none;
-    line-height: 2;
+    line-height: 2.4;
     margin-top: 16px;
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #777 transparent;
 }
+#section2 ul::-webkit-scrollbar { width: 6px; }
+#section2 ul::-webkit-scrollbar-track { background: transparent; }
+#section2 ul::-webkit-scrollbar-thumb { background: #777; border-radius: 3px; }
 
 /* === Section 3: where I’ve been === */
+#section3 {
+    display: flex;
+    flex-direction: column;
+}
 #section3 a {
   color: inherit;
   text-decoration: none;
@@ -241,10 +271,20 @@ section h1, section h2 {
 
 #section3 ul {
     list-style: none;
-    line-height: 1.6;
+    line-height: 2.4;
+    margin-top: 16px;
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #777 transparent;
 }
+#section3 ul::-webkit-scrollbar { width: 6px; }
+#section3 ul::-webkit-scrollbar-track { background: transparent; }
+#section3 ul::-webkit-scrollbar-thumb { background: #777; border-radius: 3px; }
 #section3 ul li {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 #section3 ul li span,
 #section3 ul li ul {
@@ -282,7 +322,7 @@ section h1, section h2 {
 #section4 ul::-webkit-scrollbar-track { background: transparent; }
 #section4 ul::-webkit-scrollbar-thumb { background: #777; border-radius: 3px; }
 #section4 ul li {
-  margin: 0 0 8px;       /* spacing between items */
+  margin: 0 0 12px;
   padding: 0;
 }
 
