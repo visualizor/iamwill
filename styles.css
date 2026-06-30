@@ -126,7 +126,7 @@ section h1, section h2 {
 .container::-webkit-scrollbar-thumb { background: #777; border-radius: 3px; }
 #section1 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 16px;
   width: 100%;
 }
